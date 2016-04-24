@@ -10,5 +10,6 @@
   "hubot-rules",
   "hubot-shipit",
   "hubot-heroku-keepalive",
-  "hubot-business-cat"
+  "hubot-business-cat", 
+  "hubot-thesimpsons"
 ]
