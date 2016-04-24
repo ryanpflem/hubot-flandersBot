@@ -1,6 +1,6 @@
 module.exports = (robot) ->
 
-  flandersGifs = '/giphy ned flanders'
+  flandersGifs = ['/giphy ned flanders']
 
   robot.respond /stupid sexy flanders/i, (res) ->
-    res.send res.random flandersGifs
+    res.send flandersGifs
