@@ -22,7 +22,7 @@ module.exports = (robot) ->
 
    robot.respond /Is this gonna be about (.*)/i, (res) ->
     type = res.match[1]
-    if type is "Jesus" | "jesus"
+    if type is "Jesus" | type is "jesus"
       res.reply "I'm as permissive as the next parent! I mean, just yesterday I let Todd buy some red-hots with a cartoon devil on the box!"
     else
       res.reply "Nooooo! Not #{type}!"
@@ -39,4 +39,4 @@ module.exports = (robot) ->
    robot.enter (res) ->
      res.send res.random enterReplies
    robot.leave (res) ->
-     res.send res.random leaveReplies   	 	
+     res.send res.random leaveReplies
