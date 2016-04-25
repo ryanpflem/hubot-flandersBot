@@ -22,7 +22,7 @@ module.exports = (robot) ->
 
    robot.respond /Is this gonna be about (.*)/i, (res) ->
     type = res.match[1]
-    if type is "(J|j)esus"
+    if type is "Jesus" | "jesus"
       res.reply "I'm as permissive as the next parent! I mean, just yesterday I let Todd buy some red-hots with a cartoon devil on the box!"
     else
       res.reply "Nooooo! Not #{type}!"
