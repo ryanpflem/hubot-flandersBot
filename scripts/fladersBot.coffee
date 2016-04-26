@@ -21,7 +21,7 @@ module.exports = (robot) ->
    robot.hear /I want to Tweet/i, (res) ->
     res.emote "Now let us upload the holy Tweet of the Lord!"
 
-# -------    
+# -------
 
    robot.topic (res) ->
     res.send "#{res.message.text}? Well, I'll be darn-diddly-arned!"
