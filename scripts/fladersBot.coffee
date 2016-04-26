@@ -1,4 +1,5 @@
-jargon = require './data/triggers.json'
+triggers = require './data/triggers.json'
+gifs = require '.data/flandersgifs.json'
 
 
 module.exports = (robot) ->
@@ -45,7 +46,7 @@ module.exports = (robot) ->
     else
       res.reply "Nooooo! Not #{type}!"
 
-   flandersGifs = ['http://gph.is/YBgxHX', 'http://gph.is/1ijaRxd', 'http://gph.is/12MnMC3', 'http://gph.is/15OcIJv', 'http://gph.is/1ywe9q9', 'http://gph.is/1rm28Rb', 'http://gph.is/Vx8XQ3', 'http://gph.is/11lTOAp', 'http://gph.is/12tlkmg', 'http://gph.is/11lTKkm', 'http://gph.is/11lTGRy', 'http://gph.is/Vwuybi', 'http://gph.is/Vx9lOs', 'http://gph.is/12MCr02', 'http://gph.is/XLNaqd', 'http://gph.is/12MSPxn', 'http://gph.is/148VEGD', 'http://gph.is/1niVmZD', 'http://gph.is/14KtN6U', 'http://gph.is/YBgdcv', 'http://gph.is/145lvxw', 'http://gph.is/1uEliRl', 'http://gph.is/1uYhxEm', 'http://gph.is/1JT1NOA', 'http://gph.is/XJmk1R', 'http://gph.is/1esFQdS', 'http://gph.is/1rm1Xp5', 'http://gph.is/1s5WG5I' ]
+   flandersGifs = gifs
   
-   robot.respond jargon, (res) ->
+   robot.respond triggers, (res) ->
     res.send res.random flandersGifs
