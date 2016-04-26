@@ -94,12 +94,12 @@ module.exports = (robot) ->
 
      robot.http("https://slack.com/api/users.list?token=#{apiToken}")
        .get() (err, res, body) ->
-       if err
-        res.send "Encountered an error :( #{err}"
-       if res.statusCode isnt 200
-        res.send "Request didn't come back HTTP 200 :("
-       classMembersObject = JSON.parse(body)
-       return
+         if err
+          res.send "Encountered an error :( #{err}"
+         if res.statusCode isnt 200
+          res.send "Request didn't come back HTTP 200 :("
+         classMembersObject = JSON.parse(body)
+         return
      
      res.send "@" + randomName() + " " + res.random flandersQuotes
 
