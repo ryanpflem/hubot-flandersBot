@@ -1,5 +1,6 @@
 triggers = require './data/triggers.json'
 gifs = require './data/flandersgifs.json'
+quotes = require './data/flandersquotes.json'
 
 
 
@@ -65,9 +66,10 @@ module.exports = (robot) ->
 # -------
 
    randomName = undefined
+   flandersQuotes = quotes
 
    randomName = ->
     classMembersObject.members[Math.floor(Math.random() * 30)].name
 
    robot.hear /flanders greet!/, (res) ->
-     res.send "@" + randomName() + ", I show you pity, and how do you repay me? With a kick in the kididdlehopper!"
+     res.send res.random "@" + randomName() + flandersQuotes
