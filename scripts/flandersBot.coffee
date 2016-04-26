@@ -87,7 +87,7 @@ module.exports = (robot) ->
          catch error
           res.send "Ran into an error parsing JSON :("
           return
-         holder = data.members[Math.floor(Math.random() * data.members.length)].name
+         nameHolder = data.members[Math.floor(Math.random() * data.members.length)].name
          return
 
    robot.hear /flanders greet!/, (res) ->
