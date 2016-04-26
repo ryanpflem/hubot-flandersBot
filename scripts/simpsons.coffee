@@ -8,6 +8,7 @@ request 'https://slack.com/api/users.list?token=xoxb-36596712790-23K5to1RQ7zRE7x
   classMembersObject = JSON.parse(body)
   return
 module.exports = (robot) ->
+  ranomName = undefined
   randomName = ->
   	classMembersObject.members[Math.floor(Math.random() * 30)].name
   robot.hear /flanders greet!/, (res) ->
