@@ -37,6 +37,7 @@ If you are running hubot from [Heroku][heroku] the `HUBOT_SLACK_TOKEN` should be
 
 ### Commands
 
+
 #### .hear
 
 **flandersBot** can hear you say:
@@ -52,13 +53,10 @@ and he will respond with with some neighborly advice.
 
 You can also ask him to send a random member in your [users.list][slack-api-users.list] a quote by typing `flanders greet!`
 
+
 #### .respond
 
-You can also call **flandersBot** directly like so `@flanderBot: Is this gonna be about (.*)` where `(.*)` is any word you'd like.  [Hint: Jesus and Satan are classic]
-
-#### .topic & .enter/.leave
-
-**flandersBot** will respond if you change _topics_ in a channel or _enter/leave_ a channel in Slack.
+Talk to **flandersBot** directly like so `@flanderBot: Is this gonna be about (.*)` where `(.*)` is any word you'd like.  [Hint: Jesus and Satan are classic]
 
 When talking to **flandersBot** there are several trigger words that will generate a giphy for you to enjoy!
 
@@ -81,6 +79,11 @@ When talking to **flandersBot** there are several trigger words that will genera
     - flander
     - neighbor 
     - bye
+
+
+#### .topic & .enter/.leave
+
+**flandersBot** will respond if you change _topics_ in a channel or _enter/leave_ a channel in Slack.
 
 
 ## Adapters
