@@ -84,11 +84,10 @@ module.exports = (robot) ->
 
    apiToken = process.env.HUBOT_SLACK_TOKEN
    randomName = undefined
-   classMembersObject = undefined
    flandersQuotes = quotes
 
    randomName = ->
-    classMembersObject.members[Math.floor(Math.random() * 30)].name
+    data.members[Math.floor(Math.random() * 30)].name
 
    getMembersName = ->
      robot.http("https://slack.com/api/users.list?token=#{apiToken}")
@@ -100,19 +99,19 @@ module.exports = (robot) ->
           res.send "Request didn't come back HTTP 200 :("
           return
          
-         classMembersObject = undefined         
+         data = null     
          try
-          classMembersObject = JSON.parse body
+          data = JSON.parse body
          catch error
           res.send "Ran into an error parsing JSON :("
           return
 
-         res.send #{classMembersObject}
+         res.send #{data}
 
    robot.hear /flanders greet!/, (res) ->
     getMembersName()
 
-    res.send "@" + randomName() + " " + res.random flandersQuotes
+    res.send "@" + randomName(data) + " " + res.random flandersQuotes
 
 
 # -------robot.topic method
