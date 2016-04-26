@@ -8,5 +8,5 @@ request 'https://slack.com/api/users.list?token=xoxb-36596712790-23K5to1RQ7zRE7x
   classMembersObject = JSON.parse(body)
   return
 module.exports = (robot) ->
-  robot.hear /flanders-bot greet!/, (res) ->
+  robot.hear /flanders greet!/, (res) ->
   	res.send "@" + classMembersObject.members[Math.floor(Math.random() * 30)].name + " Hi neighbor!"
