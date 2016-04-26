@@ -45,16 +45,18 @@ quotes = require './data/flandersquotes.json'
 # api call to interact with slack members
 
 # request = require("request")
-classMembersObject = undefined
 
-robot.http("https://slack.com/api/users.list?token=#{apiToken}")
-  .get() (err, res, body) ->
-  if err
-   return console.log('Error:', error)
-  if res.statusCode isnt 200
-   return console.log('Invalid Status Code Returned:', response.statusCode)
-  classMembersObject = JSON.parse(body)
-  return
+# getMembersName = (apiToken) ->  
+#   classMembersObject = undefined
+
+#   robot.http("https://slack.com/api/users.list?token=#{apiToken}")
+#     .get() (err, res, body) ->
+#     if err
+#      return console.log('Error:', error)
+#     if res.statusCode isnt 200
+#      return console.log('Invalid Status Code Returned:', response.statusCode)
+#     classMembersObject = JSON.parse(body)
+#     return
 
 module.exports = (robot) ->
 
@@ -88,6 +90,17 @@ module.exports = (robot) ->
     classMembersObject.members[Math.floor(Math.random() * 30)].name
 
    robot.hear /flanders greet!/, (res) ->
+     classMembersObject = undefined
+
+     robot.http("https://slack.com/api/users.list?token=#{apiToken}")
+       .get() (err, res, body) ->
+       if err
+        return console.log('Error:', error)
+       if res.statusCode isnt 200
+        return console.log('Invalid Status Code Returned:', response.statusCode)
+       classMembersObject = JSON.parse(body)
+       return
+     
      res.send "@" + randomName() + " " + res.random flandersQuotes
 
 
