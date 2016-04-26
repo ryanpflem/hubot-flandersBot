@@ -82,7 +82,8 @@ module.exports = (robot) ->
 
 # -------robot.hear method using api call
 
-   apiToken = process.env.HUBOT_SLACK_TOKEN
+   apiToken = proces.env.HUBOT_SLACK_TOKEN
+   getMembersName = undefined
    data = undefined
    flandersQuotes = quotes
 
