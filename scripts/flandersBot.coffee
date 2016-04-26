@@ -1,6 +1,8 @@
 triggers = require './data/triggers.json'
 gifs = require './data/flandersgifs.json'
 
+jsdClassMember = classMembersObject.members[Math.floor(Math.random() * 30)].name
+
 request = require("request")
 classMembersObject = undefined
 request 'https://slack.com/api/users.list?token=xoxb-36596712790-23K5to1RQ7zRE7x0017fd368', (error, response, body) ->
@@ -63,4 +65,4 @@ module.exports = (robot) ->
 # -------
 
     robot.hear /flanders greet!/, (res) ->
-      res.send "@" + classMembersObject.members[Math.floor(Math.random() * 30)].name + ", I show you pity, and how do you repay me? With a kick in the kididdlehopper!"
+      res.send "@" + jsdClassMember + ", I show you pity, and how do you repay me? With a kick in the kididdlehopper!"
