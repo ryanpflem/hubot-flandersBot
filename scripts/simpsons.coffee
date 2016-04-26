@@ -11,5 +11,5 @@ randomName = ->
   classMembersObject.members[Math.floor(Math.random() * 30)].name
 module.exports = (robot) ->
   robot.hear /flanders greet!/, (res) ->
-		res.send "@" + randomName + ", I show you pity, and how do you repay me? With a kick in the kididdlehopper!"
+		res.send "@" + randomName() + ", I show you pity, and how do you repay me? With a kick in the kididdlehopper!"
 
