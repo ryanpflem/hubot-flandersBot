@@ -44,13 +44,14 @@ quotes = require './data/flandersquotes.json'
 
 # api call to interact with slack members
 
-request = require("request")
+# request = require("request")
 classMembersObject = undefined
 
-request 'https://slack.com/api/users.list?token=#{apiToken}', (error, response, body) ->
-  if error
+robot.http("https://slack.com/api/users.list?token=#{apiToken}")
+  .get() (err, res, body) ->
+  if err
    return console.log('Error:', error)
-  if response.statusCode != 200
+  if res.statusCode isnt 200
    return console.log('Invalid Status Code Returned:', response.statusCode)
   classMembersObject = JSON.parse(body)
   return
