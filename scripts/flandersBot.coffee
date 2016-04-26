@@ -4,13 +4,13 @@ gifs = require './data/flandersgifs.json'
 
 module.exports = (robot) ->
 
-   robot.hear /Hello/i, (res) ->
+   robot.hear /hello/i, (res) ->
     res.send "Hi diddly-ho, neighborino!"
 
-   robot.hear /Thanks/i, (res) ->
+   robot.hear /thanks/i, (res) ->
      res.send "Don't forget to thank the Lord for this bountiful-- PENIS?!?!"
  
-   robot.hear /OK/i, (res) ->
+   robot.hear /ok/i, (res) ->
      res.send "Okaley Dokely!"
 
    robot.hear /Pray/i, (res) ->
