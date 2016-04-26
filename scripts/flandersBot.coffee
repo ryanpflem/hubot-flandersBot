@@ -18,6 +18,8 @@ request 'https://slack.com/api/users.list?token=xoxb-36596712790-23K5to1RQ7zRE7x
 
 module.exports = (robot) ->
 
+# -------robot.hear method
+
    robot.hear /hello/i, (res) ->
     res.send "Hi diddly-ho, neighborino!"
 
@@ -36,12 +38,24 @@ module.exports = (robot) ->
    robot.hear /I want to Tweet/i, (res) ->
     res.emote "Now let us upload the holy Tweet of the Lord!"
 
-# -------
+# -------robot.hear method using api call
+
+   randomName = undefined
+   flandersQuotes = quotes
+
+   randomName = ->
+    classMembersObject.members[Math.floor(Math.random() * 30)].name
+
+   robot.hear /flanders greet!/, (res) ->
+     res.send "@" + randomName() + " " + res.random flandersQuotes
+
+
+# -------robot.topic method
 
    robot.topic (res) ->
     res.send "#{res.message.text}? Well, I'll be darn-diddly-arned!"
 
-# -------
+# -------robot.enter and robot.leave method
 
    enterReplies = ["Hi diddly-ho, neighborino!", "Howdily doodily!", "Now what can I ding-dong-diddly do for you?"]
    leaveReplies = ["Doodily-doo!", "Bye-diddly-eye!", "Well, neighborinos, I guess this is goodbye... I'd better make this quick, or I'm gonna start blubbering like a baby!" ]
@@ -51,7 +65,7 @@ module.exports = (robot) ->
    robot.leave (res) ->
      res.send res.random leaveReplies
 
-# -------
+# -------robot.respond method
 
    robot.respond /Is this gonna be about (.*)/i, (res) ->
     type = res.match[1]
@@ -64,14 +78,3 @@ module.exports = (robot) ->
   
    robot.respond triggers, (res) ->
     res.send res.random flandersGifs
-
-# -------
-
-   randomName = undefined
-   flandersQuotes = quotes
-
-   randomName = ->
-    classMembersObject.members[Math.floor(Math.random() * 30)].name
-
-   robot.hear /flanders greet!/, (res) ->
-     res.send "@" + randomName() + " " + res.random flandersQuotes
