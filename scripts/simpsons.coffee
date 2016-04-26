@@ -12,4 +12,4 @@ randomName = ->
 	classMembersObject.members[Math.floor(Math.random() * 30)].name
 module.exports = (robot) ->
   robot.hear /leeTest/, (res) ->
-  	res.send "Hey, " + randomName() + " I can see your doodle!"
+  	res.send "Hey, @" + randomName() + " I can see your doodle!"
