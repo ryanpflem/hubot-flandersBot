@@ -95,9 +95,18 @@ module.exports = (robot) ->
        .get() (err, res, body) ->
          if err
           res.send "Encountered an error :( #{err}"
+          return
          if res.statusCode isnt 200
           res.send "Request didn't come back HTTP 200 :("
-         classMembersObject = JSON.parse body
+          return
+         
+         classMembersObject = undefined         
+         try
+          classMembersObject = JSON.parse body
+         catch error
+          res.send "Ran into an error parsing JSON :("
+          return
+
          res.send #{classMembersObject}
 
    robot.hear /flanders greet!/, (res) ->
