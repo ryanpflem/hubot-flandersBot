@@ -64,7 +64,10 @@ module.exports = (robot) ->
 
 # -------
 
-   jsdClassMember = classMembersObject.members[Math.floor(Math.random() * 30)].name
+   randomName = undefined
+
+   randomName = ->
+    classMembersObject.members[Math.floor(Math.random() * 30)].name
 
    robot.hear /flanders greet!/, (res) ->
-     res.send "@" + jsdClassMember + ", I show you pity, and how do you repay me? With a kick in the kididdlehopper!"
+     res.send "@" + randomName + ", I show you pity, and how do you repay me? With a kick in the kididdlehopper!"
