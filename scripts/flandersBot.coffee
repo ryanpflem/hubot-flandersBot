@@ -69,10 +69,12 @@ module.exports = (robot) ->
    getMembersName = undefined
    data = undefined
    flandersQuotes = quotes
-
+   nameHolder = undefined
+   
    getMembersName = ->
      robot.http("https://slack.com/api/users.list?token=#{apiToken}")
        .get() (err, res, body) ->
+         data = JSON.parse(body)
          if err
           res.send "Encountered an error :( #{err}"
           return
@@ -85,11 +87,14 @@ module.exports = (robot) ->
          catch error
           res.send "Ran into an error parsing JSON :("
           return
-
-         res.send #{data.members[Math.floor(Math.random() * 30)].name}
+         holder = data.members[Math.floor(Math.random() * data.members.length)].name
+         return
 
    robot.hear /flanders greet!/, (res) ->
-    res.send "@" + getMembersName() + " " + res.random flandersQuotes
+    getMembersName()
+    setTimeout () ->
+      res.send "@" + nameHolder + " " + res.random flandersQuotes
+    , 1000
 
 # -------robot.topic method
 
