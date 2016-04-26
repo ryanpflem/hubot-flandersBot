@@ -1,4 +1,42 @@
-# Declare json files
+# Description:
+#   Kill your productivity with quotes and gifs from Ned Flanders.
+#
+# Dependencies:
+#   "hubot": "^2.18.0",
+#   "hubot-diagnostics": "0.0.1",
+#   "hubot-google-images": "^0.2.6",
+#   "hubot-google-translate": "^0.2.0",
+#   "hubot-help": "^0.1.3",
+#   "hubot-heroku-keepalive": "^1.0.2",
+#   "hubot-maps": "0.0.2",
+#   "hubot-pugme": "^0.1.0",
+#   "hubot-redis-brain": "0.0.3",
+#   "hubot-rules": "^0.1.1",
+#   "hubot-scripts": "^2.16.2",
+#   "hubot-shipit": "^0.2.0",
+#   "hubot-slack": "^3.4.2",
+#   "request": "^2.72.0"
+#
+# Configuration:
+#   HUBOT_SLACK_TOKEN# 
+# 
+#
+# Commands:
+# 
+# 
+#   
+#
+# Notes:
+#   How to find these settings:
+#   Log into slack then browse to
+#   https://api.slack.com/bot-users
+#
+# Authors:
+#   Ryan Fleming
+#   Leland Scanlan
+#   Julie Esris
+
+# Require json files
 
 triggers = require './data/triggers.json'
 gifs = require './data/flandersgifs.json'
@@ -8,11 +46,13 @@ quotes = require './data/flandersquotes.json'
 
 request = require("request")
 classMembersObject = undefined
-request 'https://slack.com/api/users.list?token=xoxb-36596712790-23K5to1RQ7zRE7x0017fd368', (error, response, body) ->
+apiToken = process.env.HUBOT_SLACK_TOKEN
+
+request 'https://slack.com/api/users.list?token=#{apiToken}', (error, response, body) ->
   if error
-    return console.log('Error:', error)
+   return console.log('Error:', error)
   if response.statusCode != 200
-    return console.log('Invalid Status Code Returned:', response.statusCode)
+   return console.log('Invalid Status Code Returned:', response.statusCode)
   classMembersObject = JSON.parse(body)
   return
 
