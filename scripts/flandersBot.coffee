@@ -69,11 +69,6 @@ module.exports = (robot) ->
    getMembersName = undefined
    data = undefined
    flandersQuotes = quotes
-
-   apiToken = process.env.HUBOT_SLACK_TOKEN
-   getMembersName = undefined
-   data = undefined
-   flandersQuotes = quotes
    nameHolder = undefined
    
    getMembersName = ->
