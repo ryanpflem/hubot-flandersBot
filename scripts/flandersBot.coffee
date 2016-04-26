@@ -84,6 +84,7 @@ module.exports = (robot) ->
 
    apiToken = process.env.HUBOT_SLACK_TOKEN
    randomName = undefined
+   data = undefined
    flandersQuotes = quotes
 
    randomName = ->
