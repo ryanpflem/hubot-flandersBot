@@ -27,7 +27,7 @@
 #   
 #
 # Notes:
-#   How to find these settings:
+#   How to find api settings:
 #   Log into slack then browse to
 #   https://api.slack.com/bot-users
 #
@@ -46,7 +46,6 @@ quotes = require './data/flandersquotes.json'
 
 request = require("request")
 classMembersObject = undefined
-apiToken = process.env.HUBOT_SLACK_TOKEN
 
 request 'https://slack.com/api/users.list?token=#{apiToken}', (error, response, body) ->
   if error
@@ -80,6 +79,7 @@ module.exports = (robot) ->
 
 # -------robot.hear method using api call
 
+   apiToken = process.env.HUBOT_SLACK_TOKEN
    randomName = undefined
    flandersQuotes = quotes
 
