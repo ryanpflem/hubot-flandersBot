@@ -13,4 +13,4 @@ module.exports = (robot) ->
     # res.send res.random flandersQuotes
 
   robot.hear /leeTest/, (res) ->
-  	classMembersObject.members[Math.floor(Math.random() * 30)].name
+  	res.send classMembersObject.members[Math.floor(Math.random() * 30)].name
