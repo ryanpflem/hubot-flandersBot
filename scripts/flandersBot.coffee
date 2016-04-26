@@ -81,7 +81,7 @@ module.exports = (robot) ->
           return         
          
          try
-          data = JSON.parse body
+          data = JSON.parse(body)
          catch error
           res.send "Ran into an error parsing JSON :("
           return
