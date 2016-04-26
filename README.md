@@ -1,6 +1,6 @@
 # flandersBot
 
-![Ned Flanders gif](https://media.giphy.com/media/3xbVDsQr6OrBK/giphy.gif hello)
+![Ned Flanders gif](https://media.giphy.com/media/3xbVDsQr6OrBK/giphy.gif)
 
 He will keep you laughing and distracted as you chat on [Slack][slack].
 
