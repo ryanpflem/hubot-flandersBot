@@ -95,9 +95,9 @@ module.exports = (robot) ->
      robot.http("https://slack.com/api/users.list?token=#{apiToken}")
        .get() (err, res, body) ->
        if err
-        return console.log('Error:', error)
+        res.send "Encountered an error :( #{err}"
        if res.statusCode isnt 200
-        return console.log('Invalid Status Code Returned:', response.statusCode)
+        res.send "Request didn't come back HTTP 200 :("
        classMembersObject = JSON.parse(body)
        return
      
