@@ -14,7 +14,7 @@ module.exports = (robot) ->
      res.send "Okily dokily!"
 
    robot.hear /Pray/i, (res) ->
-    res.send "Say your prayers, Bart Simpson... because the schools can't force you like they should!"
+    res.send "Say your prayers, Bart Simpson...because the schools can't force you like they should!"
 
    robot.hear /Crap/i, (res) ->
     res.send "Aw, hell, diddly-ding-dong crap!"
