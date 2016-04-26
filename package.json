@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "author": "ryanpflem",
-  "description": "Helpful advice from your friendly neighbor.",
+  "description": "Kill your productivity with quotes and gifs from Ned Flanders.",
   "dependencies": {
     "hubot": "^2.18.0",
     "hubot-diagnostics": "0.0.1",

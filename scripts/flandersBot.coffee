@@ -1,20 +1,45 @@
-# Declare json files
+# Description:
+#   Kill your productivity with quotes and gifs from Ned Flanders.
+#
+# Dependencies:
+#   "hubot": "^2.18.0",
+#   "hubot-diagnostics": "0.0.1",
+#   "hubot-google-images": "^0.2.6",
+#   "hubot-google-translate": "^0.2.0",
+#   "hubot-help": "^0.1.3",
+#   "hubot-heroku-keepalive": "^1.0.2",
+#   "hubot-maps": "0.0.2",
+#   "hubot-pugme": "^0.1.0",
+#   "hubot-redis-brain": "0.0.3",
+#   "hubot-rules": "^0.1.1",
+#   "hubot-scripts": "^2.16.2",
+#   "hubot-shipit": "^0.2.0",
+#   "hubot-slack": "^3.4.2"
+#
+# Configuration:
+#   HUBOT_SLACK_TOKEN
+# 
+#
+# Commands:
+# 
+# 
+#   
+#
+# Notes:
+#   How to find api settings:
+#   Log into slack then browse to
+#   https://api.slack.com/bot-users
+#
+# Authors:
+#   Ryan Fleming
+#   Leland Scanlan
+#   Julie Esris
+
+# -------Require json files
 
 triggers = require './data/triggers.json'
 gifs = require './data/flandersgifs.json'
 quotes = require './data/flandersquotes.json'
-
-# api call to interact with slack members
-
-request = require("request")
-classMembersObject = undefined
-request 'https://slack.com/api/users.list?token=xoxb-36596712790-23K5to1RQ7zRE7x0017fd368', (error, response, body) ->
-  if error
-    return console.log('Error:', error)
-  if response.statusCode != 200
-    return console.log('Invalid Status Code Returned:', response.statusCode)
-  classMembersObject = JSON.parse(body)
-  return
 
 module.exports = (robot) ->
 
@@ -40,15 +65,31 @@ module.exports = (robot) ->
 
 # -------robot.hear method using api call
 
-   randomName = undefined
+   apiToken = process.env.HUBOT_SLACK_TOKEN
+   getMembersName = undefined
+   data = undefined
    flandersQuotes = quotes
 
-   randomName = ->
-    classMembersObject.members[Math.floor(Math.random() * 30)].name
+   getMembersName = ->
+     robot.http("https://slack.com/api/users.list?token=#{apiToken}")
+       .get() (err, res, body) ->
+         if err
+          res.send "Encountered an error :( #{err}"
+          return
+         if res.statusCode isnt 200
+          res.send "Request didn't come back HTTP 200 :("
+          return         
+         
+         try
+          data = JSON.parse(body)
+         catch error
+          res.send "Ran into an error parsing JSON :("
+          return
+
+         res.send #{data.members[Math.floor(Math.random() * 30)].name}
 
    robot.hear /flanders greet!/, (res) ->
-     res.send "@" + randomName() + " " + res.random flandersQuotes
-
+    res.send "@" + getMembersName() + " " + res.random flandersQuotes
 
 # -------robot.topic method
 
