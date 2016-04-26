@@ -11,7 +11,7 @@ module.exports = (robot) ->
      res.send "Don't forget to thank the Lord for this bountiful-- PENIS?!?!"
  
    robot.hear /OK/i, (res) ->
-     res.send "Okily dokily!"
+     res.send "Okaley Dokely!"
 
    robot.hear /Pray/i, (res) ->
     res.send "Say your prayers, Bart Simpson...because the schools can't force you like they should!"
