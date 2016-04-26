@@ -74,4 +74,4 @@ module.exports = (robot) ->
     classMembersObject.members[Math.floor(Math.random() * 30)].name
 
    robot.hear /flanders greet!/, (res) ->
-     res.send "@" + randomName() + res.random flandersQuotes
+     res.send "@" + randomName() + " " + res.random flandersQuotes
