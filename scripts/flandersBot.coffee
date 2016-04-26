@@ -14,11 +14,10 @@
 #   "hubot-rules": "^0.1.1",
 #   "hubot-scripts": "^2.16.2",
 #   "hubot-shipit": "^0.2.0",
-#   "hubot-slack": "^3.4.2",
-#   "request": "^2.72.0"
+#   "hubot-slack": "^3.4.2"
 #
 # Configuration:
-#   HUBOT_SLACK_TOKEN# 
+#   HUBOT_SLACK_TOKEN
 # 
 #
 # Commands:
@@ -36,27 +35,11 @@
 #   Leland Scanlan
 #   Julie Esris
 
-# Require json files
+# -------Require json files
 
 triggers = require './data/triggers.json'
 gifs = require './data/flandersgifs.json'
 quotes = require './data/flandersquotes.json'
-
-# api call to interact with slack members
-
-# request = require("request")
-
-# getMembersName = (apiToken) ->  
-#   classMembersObject = undefined
-
-#   robot.http("https://slack.com/api/users.list?token=#{apiToken}")
-#     .get() (err, res, body) ->
-#     if err
-#      return console.log('Error:', error)
-#     if res.statusCode isnt 200
-#      return console.log('Invalid Status Code Returned:', response.statusCode)
-#     classMembersObject = JSON.parse(body)
-#     return
 
 module.exports = (robot) ->
 
@@ -107,7 +90,6 @@ module.exports = (robot) ->
 
    robot.hear /flanders greet!/, (res) ->
     res.send "@" + getMembersName() + " " + res.random flandersQuotes
-
 
 # -------robot.topic method
 
