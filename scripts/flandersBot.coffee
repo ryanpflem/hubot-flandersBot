@@ -1,8 +1,10 @@
+# Declare json files
+
 triggers = require './data/triggers.json'
 gifs = require './data/flandersgifs.json'
 quotes = require './data/flandersquotes.json'
 
-
+# api call to interact with slack members
 
 request = require("request")
 classMembersObject = undefined
@@ -72,4 +74,4 @@ module.exports = (robot) ->
     classMembersObject.members[Math.floor(Math.random() * 30)].name
 
    robot.hear /flanders greet!/, (res) ->
-     res.send res.random "@" + randomName() + flandersQuotes
+     res.send "@" + randomName() + res.random flandersQuotes
