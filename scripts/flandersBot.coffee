@@ -1,5 +1,5 @@
 triggers = require './data/triggers.json'
-gifs = require '.data/flandersgifs.json'
+gifs = require './data/flandersgifs.json'
 
 
 module.exports = (robot) ->
